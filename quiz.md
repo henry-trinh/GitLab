@@ -11,11 +11,28 @@ xanda_0000_movie_processing?
 (For this and future questions, the first 5 characters is plenty - neither
 Git nor I need the whole SHA.)
 
+We run the command "git log xanda_0000_movie_processing" to get the corresponding SHA: 9b2571f9. Note that the branch was stale, so my git commands did not acknowledge its existence for some time.
+
 2. What is the SHA for the last commit associated with line 9 of this file?
+
+We run the command "git blame -L 9,9 quiz.md" to get the corresponding SHA: b2ed39de.
 
 3. What did line 12 of this file say in commit d1d83?
 
+We run the command "git blame -L 12,12 quiz.md d1d83" to get the corresponding line: "2. I should really finish writing this."
+
 4. What changed between commit e474c and 82045?
+
+Between the two commits, the following changes were found using the command "git diff e474c 82045":
+
+     # Sort data and get top 5
+-    gross_sort = lambda x : x["Gross"]
++    gross_sort = lambda x : int(x["Gross"])
+     rows.sort(key=gross_sort)
+-    top_five = rows[:-5:-1]
++    top_five = rows[:-6:-1]
+
+In the first change, there was probably a subscriptable error initially, so we explicitly convert x["Gross"] to an int-type. In the second change, we change the ending index by one value. This was done to retrieve 5 values instead of 4 (the original code was an error!)
 
 ## Predicting merges
 

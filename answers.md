@@ -55,12 +55,16 @@ git checkout test
 git merge top_N
 ```
 
+We switch to the test branch. Then, the top_N branch will merge the changes from top_N to test. As a result, only the test branch will be changed. Assuming there are no changes to the same lines of code in both branches (which would result in a merge conflict), a new merge commit would be created.
+
 6. What do you think would happen if you ran the following commands?
 What branches would change, and how?
 ```
 git checkout top_ten
 git merge test
 ```
+
+We switch to the top_ten branch. Then, the test branch will merge the changes from test to top_ten. As a result, only the top_10 branch will be changed. Assuming there are no changes to the same lines of code in both branches (which would result in a merge conflict), a new merge commit would be created.
 
 7. What do you think would happen if you ran the following commands?
 What branches would change, and how?
@@ -69,3 +73,5 @@ git checkout test
 git rebase top_ten
 git rebase top_N
 ```
+
+We switch to the test branch. Then, the commits from top_ten will replace the test branch entirely with its commit history. Then, the commits from top_N will replace the test branch with its commit history. As a result, only the test branch will be changed. After running these commands, a merge conflict will occur, prompting the generation of annotations around the segments of the code that differ between the two versions of the file. 

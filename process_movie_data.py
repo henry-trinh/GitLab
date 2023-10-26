@@ -23,7 +23,7 @@ def find_top_n(filename, n = 10):
     # Sort data and get top n
     gross_sort = lambda x : x["Gross"]
     rows.sort(key=gross_sort)
-    top_n = rows[:-n-1:-1]
+    top_n = rows[:-n-5:-1]
 
     # Print out results
     for i, row in enumerate(top_n):
